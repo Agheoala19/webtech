@@ -1,9 +1,10 @@
-var http = require("http")
+const express = require('express')
 
-http
- .createServer(function (req, res) {
-   res.write("hello web")
-   res.end()
- })
-  .listen(8080)
+const app = express()
+
+app.get('/', (req, res) => {
+    res.send("hello world!")
+})
+
+app.listen(8080)
 
