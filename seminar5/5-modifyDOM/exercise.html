@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Contact Agenda</title>
+</head>
+<body>
+  <h1>Agenda</h1>
+
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Name" required />
+    <input type="text" id="phone" placeholder="Phone" required />
+    <button type="submit">Add Contact</button>
+  </form>
+
+  <table id="contactTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Contacts will appear here -->
+    </tbody>
+  </table>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const tableBody = document.querySelector("#contactTable tbody");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (name === "" || phone === "") {
+        alert("Please fill in both fields.");
+        return;
+      }
+
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${phone}</td>
+      `;
+
+      tableBody.appendChild(row);
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
