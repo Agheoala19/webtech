@@ -1,0 +1,27 @@
+<html lang="en">
+
+<head>
+    <script>
+        window.onload = () => {
+            const button = document.getElementById('myBtn')
+            const myEvt = new Event('myEvt')
+
+            const clickHandler = () => {
+                document.dispatchEvent(myEvt)
+            }
+
+            const myEvtHandler = () => {
+                console.log('The button was clicked.')
+            }
+
+            button.onclick = clicktHandler
+            document.addEventListener("myEvt", myEvtHandler)
+        }
+    </script>
+</head>
+
+<body>
+    <button id="myBtn">Click me!</button>
+</body>
+
+</html>
