@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            /* selector for all elements */
+            background-color: #444;
+            color: #fff;
+        }
+
+        div {
+            /* selects all divs */
+            padding: 10px;
+            color: #111;
+        }
+
+        #container {
+            /* select by id */
+            border: 1px dashed #ccc;
+        }
+
+        #container div:first-child {
+            /* selector for the first div in #container */
+            background-color: #222;
+            color: #eee;
+        }
+
+        #container div:first-child::before {
+            /* puts something right before the first child */
+            content: "Window: ";
+            margin-left: 10px;
+        }
+
+        #container div:last-child {
+            /*selector for last div in #container */
+            background-color: #999;
+            text-align: right;
+        }
+
+        #container div:last-child::after {
+            /* puts something right after the last child */
+            content: " Copyright 2021";
+            margin-right: 10px;
+        }
+
+        #container .main {
+            /*selector for the element with main class from the element with id container */
+            width: 100%;
+            height: 500px;
+            background-color: #fff;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        #container .main * {
+            /*selects all elements from element with main class */
+            margin: 0;
+            padding: 10px;
+            background-color: #eee;
+            color: #222;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div>
+            Title
+        </div>
+        <div class="main">
+            <p>a</p>
+            <p>b</p>
+            <p>c</p>
+        </div>
+        <div>
+            Footer
+        </div>
+    </div>
+</body>
+
+</html>
