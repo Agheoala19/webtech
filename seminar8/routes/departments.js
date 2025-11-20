@@ -3,11 +3,19 @@ const express = require("express");
 const { departments } = require("../db");
 const router = express.Router();
 
+const checkId = (req,res,next) => {
+    if (req.params.id && isNaN(req.params.id)) {
+        res.status(400).json({ error: "wrong input for id" })
+    } else {
+        next()
+    }
+}
+
 router.get("/departments", (req, res) => {
     res.status(200).json(departments);
 });
 
-router.get("/departments/:id", (req, res) => {
+router.get("/departments/:id", checkId, (req, res) => {
     const department = departments.find(
         (department) => department.id === Number(req.params.id)
     );
