@@ -27,13 +27,6 @@ const Employee = sequelize.define(
       type: DataTypes.INTEGER,
       min: 1900,
     },
-    salary: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
-      validate: {
-        min: 0,
-      },
-    },
   }
   // { tableName: "Employees" }
 );
