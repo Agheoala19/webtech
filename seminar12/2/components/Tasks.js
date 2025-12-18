@@ -8,7 +8,7 @@ const reducer = (state, action) => {
         case 'increment':
             return {
                 count: state.count + 1,
-                history: [...state.history, state.count + 1]
+                history: [...state.history, state.count + 1] //...state.history adauga si componentele care erau inainte in array (pleaca de la starea precedenta)
             }
         case 'decrement':
             return {
